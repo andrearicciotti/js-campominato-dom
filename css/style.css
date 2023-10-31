@@ -42,7 +42,9 @@ img {
     background-color: lightblue;
 }
 
-
+.bg-lightcoral {
+    background-color: lightcoral;
+}
 
 /* HEADER */
 .header {
@@ -100,7 +102,13 @@ img {
     align-items: center;
 } 
 
-
+.bomb {
+    aspect-ratio: 1;
+    border: 1px solid var(--secondary-col);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
 
 
 /* FOOTER */
