@@ -87,6 +87,8 @@ function startGame() {
 
 function handleCellBlue() {
     this.classList.add('bg-lightblue');
+    points += 5;
+    score.textContent = `Il tuo punteggio attuale: ${points} punti!`;
     // console.log('ok-blue', this);
 }
 

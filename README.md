@@ -28,7 +28,8 @@ con difficoltà 3 => tra 1 e 49
 
 - Generazione griglia di gioco in base alla difficolta scelta dall' utente.
 - Generazione array di numeri casuali che non si ripetono alla quale associare le celle che conterranno le bombe che potranno far perdere il giocatore al click su di esse.
-- Se non viene colpita una bomba il gioco procede e termina al raggiungimento del limite di caselle azzurre'
-- Creazione variabile che raccolga il numero di click effettuati dall' utente su una cella azzura, per poter assegnare il punteggio e far terminare la partita.
+- Generazione evento per click su celle 'bombe'. Che faranno terminare la partita.
+- Generazione evento per click su celle 'buone'. Per poter assegnare il punteggio e far terminare la partita nel caso in cui vengano cliccate tutte.
+
 
 ---

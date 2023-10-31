@@ -38,6 +38,10 @@ img {
     display: none;
 }
 
+.d-block {
+    display: block;
+}
+
 .bg-lightblue {
     background-color: lightblue;
 }
@@ -75,6 +79,9 @@ img {
     height: calc(100% - (var(--header-height)) - (var(--footer-height)));
     border-top: 2px solid var(--primary-col);
     border-bottom: 2px solid var(--secondary-col);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .wrapper {
@@ -82,6 +89,7 @@ img {
     width: 100%;
     margin: 0 auto; 
     display: flex;   
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
