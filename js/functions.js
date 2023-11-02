@@ -36,11 +36,15 @@ function genBombs(max) {
 
 function startGame() {
 
+    this.textContent = "Reset";
+    score.textContent = "";
+    points = 0;
+    grid.innerHTML = "";
+
     const difficult = document.getElementById('difficult').value;
     // console.log(difficult);
 
     let squareSize = "";
-    let curCell;
 
     if (difficult === "hard") {
         squareSize = 49;
@@ -58,17 +62,17 @@ function startGame() {
     }
 
     const bombs = genBombs(squareSize);
-    // console.log(bombs);
+    console.log(bombs);
 
     const cells = document.querySelectorAll('.cell');
     // console.log(cells, cells.length);
 
     for (let i = 0; i < cells.length; i++) {
-        curCell = cells[i];
+        const curCell = cells[i];
         const curCellNumber = parseInt(curCell.textContent);
         curCell.addEventListener("click", handleCellBlue);
 
-        console.log(curCellNumber);
+        // console.log(curCellNumber);
         if (bombs.includes(curCellNumber)) {
             // console.log('ok', curCell.classList);
             curCell.classList.remove('cell');
@@ -80,20 +84,63 @@ function startGame() {
 
     }
 
-    
-
+    const bomb = document.querySelectorAll('.bomb');
+    console.log(bomb);
 }
 
 
 function handleCellBlue() {
-    this.classList.add('bg-lightblue');
-    points += 5;
-    score.textContent = `Il tuo punteggio attuale: ${points} punti!`;
-    // console.log('ok-blue', this);
+    // console.log(this.classList);
+    const cells = document.querySelectorAll('.cell');
+    console.log(cells.length);
+
+    if (this.classList.value == 'cell' && points != -1 && points != cells.length - 1) {
+
+        points += 1;
+        score.textContent = `Il tuo punteggio attuale: ${points} punti!`;
+        this.classList.add('bg-lightblue');
+    } else if (points === -1) {
+        score.textContent = "Ritenta! Sarai piu fortunato!"
+    }
+
+    else if (points === cells.length - 1) {
+        score.textContent = `hai vinto!! Totalizzando ${points + 1} punti!`;
+        this.classList.add('bg-lightblue');
+        const bomb = document.querySelectorAll('.bomb');
+        for (let i = 0; i < bomb.length; i++) {
+            const curBomb = bomb[i];
+            // console.log(curBomb);
+            curBomb.classList.add('bg-lightcoral');
+        }
+    }
+        // console.log('ok-blue', this);
 }
 
 
 function handleCellRed() {
-    this.classList.add('bg-lightcoral');
-    // console.log('ok-red', this);
+
+    const cells = document.querySelectorAll('.cell');
+    if (points != -1 && points != cells.length - 1) {
+
+        this.classList.add('bg-lightcoral');
+        score.textContent = `BOOM! Hai totalizzato ${points} punti!`;
+        // console.log(bombs);
+        points = -1;
+        const bomb = document.querySelectorAll('.bomb');
+        // console.log(bomb.classList);
+        for (let i = 0; i < bomb.length; i++) {
+            const curBomb = bomb[i];
+            // console.log(curBomb);
+            curBomb.classList.add('bg-lightcoral');
+        }
+        // console.log('hai perso');
+        // console.log('ok-red', this);}
+    } else if (points === cells.length - 1) {
+        score.textContent = `hai vinto!! Totalizzando ${points + 1} punti!`;
+    } 
+    
+    else {
+        score.textContent = "Ritenta! Sarai piu fortunato!"
+    }
+
 }

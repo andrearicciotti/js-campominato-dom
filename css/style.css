@@ -7,8 +7,8 @@
     --bg-col-main:;
     --bg-col-cell-lblue: lightblue;
 
-    --header-height: 80px;
-    --footer-height: 80px;
+    --header-height: 60px;
+    --footer-height: 60px;
 }
 
 /* RESET */
@@ -94,9 +94,13 @@ img {
     align-items: center;
 }
 
+.score {
+    margin: 1rem 0;
+}
+
 .grid {
-    width: 550px;
-    height: 550px;
+    height: 80%;
+    aspect-ratio: 1;
     display: flex;
     flex-wrap: wrap;
     border: 1px solid var(--secondary-col);
